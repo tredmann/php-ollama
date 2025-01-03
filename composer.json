@@ -5,13 +5,33 @@
             "Ollama\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Tobias Redmann",
             "email": "tobias.redmann@gmail.com"
         }
     ],
+    "scripts": {
+        "phpunit": [
+            "XDEBUG_MODE=off ./vendor/bin/phpunit -d memory_limit=2048M "
+        ],
+        "pint": [
+            "@php vendor/bin/pint --preset=psr12"
+        ],
+        "coverage": [
+            "XDEBUG_MODE=coverage ./vendor/bin/phpunit -d memory_limit=2048M --coverage-html coverage/"
+        ]
+    },
     "require": {
         "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11",
+        "laravel/pint": "^1.19"
     }
 }

@@ -111,3 +111,5 @@ Temporary Items
 
 /vendor/
 composer.lock
+/.phpunit.cache/
+/coverage/
