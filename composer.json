@@ -1,0 +1,17 @@
+{
+    "name": "tobias-redmann/php-ollama",
+    "autoload": {
+        "psr-4": {
+            "Ollama\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tobias Redmann",
+            "email": "tobias.redmann@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0"
+    }
+}
