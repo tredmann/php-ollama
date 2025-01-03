@@ -1,5 +1,6 @@
 {
   "response": "The capitol of Germany is Berlin",
   "model": "phpunit",
-  "done": "true"
+  "done": true,
+  "created_at": "2023-08-04T19:22:45.499127Z"
 }

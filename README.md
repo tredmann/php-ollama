@@ -33,7 +33,7 @@ use Ollama\Requests\CompletionRequest;
 
 $request = new CompletionRequest(
     model: 'phi3.5:latest',
-    prompt: 'What is the capital of Germany?' 
+    prompt: 'What is the capitol of Germany?' 
 );
 ```
 
@@ -47,5 +47,5 @@ $response = $completionApi->getCompletion(request: $request);
 
 ```php
 echo $response->response;
-// 'The capital of Germany is Berlin.'
+// 'The capitol of Germany is Berlin.'
 ```
