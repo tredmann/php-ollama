@@ -33,7 +33,7 @@ readonly class CompletionRequest
             'stream' => $this->stream,
             'options' => $this->options,
             'raw' => $this->raw,
-            'keepAlive' => $this->keepAlive,
+            'keep_alive' => $this->keepAlive,
         ];
 
         if ($this->format !== null) {
