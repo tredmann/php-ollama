@@ -2,10 +2,13 @@
 
 namespace Ollama\Requests;
 
+use Exception;
+
 readonly class CompletionRequest
 {
     /**
      * @url: https://github.com/ollama/ollama/blob/main/docs/api.md#parameters
+     * @throws Exception
      */
     public function __construct(
         public string $model,
@@ -19,6 +22,12 @@ readonly class CompletionRequest
         public ?string $keepAlive = '5m',
         public ?string $suffix = null,
     ) {
+        // we currently not support streaming
+        if ($this->stream === true) {
+            throw new Exception(
+                message: 'We currently do not support streaming.',
+            );
+        }
     }
 
     /**
