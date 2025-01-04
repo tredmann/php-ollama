@@ -3,6 +3,7 @@
 namespace Ollama\Client;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 
 class OllamaClient
@@ -15,8 +16,25 @@ class OllamaClient
         $this->client = new Client(['base_uri' => $this->baseUrl]);
     }
 
+    /**
+     * @throws GuzzleException
+     */
     public function post(string $url, array $json = []): ResponseInterface
     {
         return $this->client->post($url, ['json' => $json]);
+    }
+
+    /**
+     * @throws GuzzleException
+     */
+    public function get(string $url, ?array $params = null): ResponseInterface {
+
+        $options = [];
+
+        if ($params !== null) {
+            $options['query'] = $params;
+        }
+
+        return $this->client->get($url, $options);
     }
 }
