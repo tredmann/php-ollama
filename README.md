@@ -6,7 +6,7 @@ The intention is to work with models on your Ollama setup and not the create a d
 this library will not implement any APIs to create, move or delete models. Here is a list of the APIs
 we intend to implement and the status of the implementation:
 
-* [x] Completion (initial, not fully tested)
+* [x] Completion (without streaming support)
 * [ ] Chat Completion
 * [ ] List local models
 * [ ] Show Model Information
