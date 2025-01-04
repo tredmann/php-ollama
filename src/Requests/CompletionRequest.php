@@ -40,10 +40,13 @@ readonly class CompletionRequest
             'model' => $this->model,
             'prompt' => $this->prompt,
             'stream' => $this->stream,
-            'options' => $this->options,
             'raw' => $this->raw,
             'keep_alive' => $this->keepAlive,
         ];
+
+        if (count($this->options) > 0) {
+            $payload['options'] = $this->options;
+        }
 
         if ($this->format !== null) {
             $payload['format'] = $this->format;

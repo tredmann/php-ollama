@@ -12,7 +12,7 @@ class CompletionResponse
     public function __construct(
         public string $model,
         public string $response,
-        public bool $done = true,
+        public bool $done,
         public ?DateTime $createdAt,
         public ?array $context = null,
         public ?int $totalDuration = null,
