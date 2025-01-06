@@ -7,7 +7,7 @@ this library will not implement any APIs to create, move or delete models. Here 
 we intend to implement and the status of the implementation:
 
 * [x] Completion (without streaming support)
-* [ ] Chat Completion
+* [x] Chat Completion (without streaming support)
 * [x] List local models
 * [x] Show Model Information
 * [x] List Running Models
