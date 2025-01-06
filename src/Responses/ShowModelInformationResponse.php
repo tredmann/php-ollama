@@ -5,7 +5,7 @@ namespace Ollama\Responses;
 use Ollama\DTOs\Details;
 use Ollama\DTOs\ModelInfo;
 
-readonly class ShowModelInformationResponse extends AbstractResponse
+final readonly class ShowModelInformationResponse extends AbstractResponse
 {
     public function __construct(
         public string $modelFile,
@@ -19,7 +19,7 @@ readonly class ShowModelInformationResponse extends AbstractResponse
 
     public static function fromJson(object $json): static
     {
-        return new self(
+        return new static(
             modelFile: $json->modelfile,
             parameters: $json->parameters,
             template: $json->template,

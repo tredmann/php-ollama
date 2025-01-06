@@ -2,11 +2,6 @@
 
 namespace Ollama\DTOs;
 
-//"format": "gguf",
-//"family": "llama",
-//"families": null,
-//"parameter_size": "13B",
-//"quantization_level": "Q4_0"
 readonly class Details
 {
     public function __construct(

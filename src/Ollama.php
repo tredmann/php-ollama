@@ -2,6 +2,7 @@
 
 namespace Ollama;
 
+use Exception;
 use Ollama\Api\ChatCompletion;
 use Ollama\Api\Completion;
 use Ollama\Client\OllamaClient;
@@ -28,6 +29,9 @@ class Ollama
         return $this;
     }
 
+    /**
+     * @throws Exception
+     */
     public function completion(string $prompt): string
     {
         $response = $this->completion->getCompletion(new CompletionRequest(model: $this->model, prompt: $prompt));
@@ -38,7 +42,7 @@ class Ollama
     /**
      * @param array<Message> $messages
      * @return Message
-     * @throws \Exception
+     * @throws Exception
      */
     public function chat(array $messages): Message
     {

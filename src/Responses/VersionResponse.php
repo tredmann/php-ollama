@@ -2,7 +2,7 @@
 
 namespace Ollama\Responses;
 
-readonly class VersionResponse extends AbstractResponse
+final readonly class VersionResponse extends AbstractResponse
 {
     public function __construct(public string $version)
     {
@@ -10,7 +10,7 @@ readonly class VersionResponse extends AbstractResponse
 
     public static function fromJson(object $json): static
     {
-        return new self(version: $json->version);
+        return new static(version: $json->version);
     }
 
 }

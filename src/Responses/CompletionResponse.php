@@ -5,7 +5,7 @@ namespace Ollama\Responses;
 use DateMalformedStringException;
 use DateTime;
 
-readonly class CompletionResponse extends AbstractResponse
+final readonly class CompletionResponse extends AbstractResponse
 {
     public function __construct(
         public string $model,
@@ -28,7 +28,7 @@ readonly class CompletionResponse extends AbstractResponse
      */
     public static function fromJson(object $json): static
     {
-        return new self(
+        return new static(
             model: $json->model,
             response: $json->response,
             done: $json->done,

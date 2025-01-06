@@ -5,7 +5,7 @@ namespace Ollama\Responses;
 use Ollama\DTOs\Message;
 use Ollama\Enums\Role;
 
-readonly class ChatCompletionResponse extends AbstractResponse
+final readonly class ChatCompletionResponse extends AbstractResponse
 {
     public function __construct(
         public string $model,
@@ -19,7 +19,7 @@ readonly class ChatCompletionResponse extends AbstractResponse
     public static function fromJson(object $json): static
     {
 
-        return new self(
+        return new static(
             model: $json->model,
             message: new Message(role: Role::from($json->message->role), content: $json->message->content),
             done: $json->done

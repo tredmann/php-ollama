@@ -7,7 +7,7 @@ use DateTime;
 use Ollama\DTOs\Details;
 use Ollama\DTOs\Model;
 
-readonly class LocalModelsResponse extends AbstractResponse
+final readonly class LocalModelsResponse extends AbstractResponse
 {
     /**
      * @param array<Model> $models
@@ -40,7 +40,7 @@ readonly class LocalModelsResponse extends AbstractResponse
             );
         }
 
-        return new self(models: $models);
+        return new static(models: $models);
     }
 
 }
