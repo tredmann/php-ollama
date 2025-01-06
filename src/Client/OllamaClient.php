@@ -27,7 +27,8 @@ class OllamaClient
     /**
      * @throws GuzzleException
      */
-    public function get(string $url, ?array $params = null): ResponseInterface {
+    public function get(string $url, ?array $params = null): ResponseInterface
+    {
 
         $options = [];
 

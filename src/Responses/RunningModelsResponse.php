@@ -2,6 +2,8 @@
 
 namespace Ollama\Responses;
 
+use DateTime;
+use Ollama\DTOs\Details;
 use Ollama\DTOs\Model;
 use Psr\Http\Message\ResponseInterface;
 
@@ -12,9 +14,38 @@ readonly class RunningModelsResponse
     {
     }
 
+    /**
+     * @throws \DateMalformedStringException
+     */
+    public static function fromJson(object $json): RunningModelsResponse
+    {
+        $models = [];
+
+        foreach ($json->models as $m) {
+
+            $models[] = new Model(
+                name: $m->name,
+                modifiedAt: isset($m->modified_at) ? new DateTime($m->modified_at) : null,
+                size: $m->size,
+                digest: $m->digest,
+                details: new Details(
+                    format: $m->details->format,
+                    family: $m->details->family,
+                    parameterSize: $m->details->parameter_size,
+                    quantizationLevel: $m->details->quantization_level,
+                    families: $m->details->families,
+                )
+            );
+        }
+
+        return new self(models: $models);
+    }
+
     public static function fromResponse(ResponseInterface $response): self
     {
-        return new self(models: []);
+        $models = json_decode($response->getBody()->getContents());
+
+        return self::fromJson($models);
     }
 
 }

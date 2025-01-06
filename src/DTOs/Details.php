@@ -15,7 +15,8 @@ readonly class Details
         public string $parameterSize,
         public string $quantizationLevel,
         public ?array $families = null,
-    ) {}
+    ) {
+    }
 
 
 }
