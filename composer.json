@@ -1,5 +1,6 @@
 {
     "name": "tredmann/php-ollama",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Ollama\\": "src/"
