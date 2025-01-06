@@ -1,6 +1,6 @@
 <?php
 
-namespace Api;
+namespace Tests\Api;
 
 use GuzzleHttp\Psr7\Response;
 use Ollama\Api\ListLocalModels;
