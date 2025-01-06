@@ -17,6 +17,24 @@ The checkout the [Ollama API Docs](https://github.com/ollama/ollama/blob/main/do
 
 This package contains some low-level API libraries as well as a convenient API wrapper for all APIs. 
 
+## Convenience Wrapper
+
+The easiest way to ask the LLM things is to use the convenience wrapper:
+
+```php
+use Ollama\Ollama;
+
+$ollama = new Ollama(model: 'gemma2:latest');
+
+echo $ollama->completion(prompt: 'What is the capitol od Germany?');
+// The capital of Germany is **Berlin**.
+
+```
+
+It does have a ton of limitations, but for quick results it is easy to use. I would highly encourage to look into
+the low-level library.
+
+
 ## General way of working with the low-level library
 
 ### Creating the Client
