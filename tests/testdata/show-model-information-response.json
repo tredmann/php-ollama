@@ -1,0 +1,47 @@
+{
+    "license": "license",
+    "modelfile": "modelfile",
+    "parameters": "parameters",
+    "template": "template",
+    "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "gemma2",
+        "families": [
+            "gemma2"
+        ],
+        "parameter_size": "9.2B",
+        "quantization_level": "Q4_0"
+    },
+    "model_info": {
+        "gemma2.attention.head_count": 16,
+        "gemma2.attention.head_count_kv": 8,
+        "gemma2.attention.key_length": 256,
+        "gemma2.attention.layer_norm_rms_epsilon": 1.0e-6,
+        "gemma2.attention.sliding_window": 4096,
+        "gemma2.attention.value_length": 256,
+        "gemma2.attn_logit_softcapping": 50,
+        "gemma2.block_count": 42,
+        "gemma2.context_length": 8192,
+        "gemma2.embedding_length": 3584,
+        "gemma2.feed_forward_length": 14336,
+        "gemma2.final_logit_softcapping": 30,
+        "general.architecture": "gemma2",
+        "general.file_type": 2,
+        "general.parameter_count": 9241705984,
+        "general.quantization_version": 2,
+        "tokenizer.ggml.add_bos_token": true,
+        "tokenizer.ggml.add_eos_token": false,
+        "tokenizer.ggml.add_space_prefix": false,
+        "tokenizer.ggml.bos_token_id": 2,
+        "tokenizer.ggml.eos_token_id": 1,
+        "tokenizer.ggml.model": "llama",
+        "tokenizer.ggml.padding_token_id": 0,
+        "tokenizer.ggml.pre": "default",
+        "tokenizer.ggml.scores": null,
+        "tokenizer.ggml.token_type": null,
+        "tokenizer.ggml.tokens": null,
+        "tokenizer.ggml.unknown_token_id": 3
+    },
+    "modified_at": "2024-07-12T20:52:59.017135141+02:00"
+}

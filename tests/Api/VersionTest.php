@@ -14,7 +14,9 @@ class VersionTest extends TestCase
         $client = $this->createMock(OllamaClient::class);
         $client->expects($this->once())
             ->method('get')
-            ->willReturn(new Response(200, [], file_get_contents(__DIR__.'/../testdata/version-response.json')));
+            ->willReturn(
+                new Response(200, [], file_get_contents(__DIR__.'/../testdata/version-response.json'))
+            );
 
         $api = new Version(client: $client);
 

@@ -6,9 +6,8 @@ use DateMalformedStringException;
 use DateTime;
 use Ollama\DTOs\Details;
 use Ollama\DTOs\Model;
-use Psr\Http\Message\ResponseInterface;
 
-readonly class RunningModelsResponse
+readonly class RunningModelsResponse extends AbstractResponse
 {
     /** @param array<Model> $models */
     public function __construct(public array $models)
@@ -18,7 +17,7 @@ readonly class RunningModelsResponse
     /**
      * @throws DateMalformedStringException
      */
-    public static function fromJson(object $json): self
+    public static function fromJson(object $json): static
     {
         $models = [];
 
@@ -41,15 +40,4 @@ readonly class RunningModelsResponse
 
         return new self(models: $models);
     }
-
-    /**
-     * @throws DateMalformedStringException
-     */
-    public static function fromResponse(ResponseInterface $response): self
-    {
-        $models = json_decode($response->getBody()->getContents());
-
-        return self::fromJson($models);
-    }
-
 }

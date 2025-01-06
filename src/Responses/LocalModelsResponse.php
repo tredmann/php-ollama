@@ -4,11 +4,10 @@ namespace Ollama\Responses;
 
 use DateMalformedStringException;
 use DateTime;
-use GuzzleHttp\Psr7\Response;
 use Ollama\DTOs\Details;
 use Ollama\DTOs\Model;
 
-readonly class LocalModelsResponse
+readonly class LocalModelsResponse extends AbstractResponse
 {
     /**
      * @param array<Model> $models
@@ -17,11 +16,10 @@ readonly class LocalModelsResponse
     {
     }
 
-
     /**
      * @throws DateMalformedStringException
      */
-    public static function fromJson(object $json): self
+    public static function fromJson(object $json): static
     {
         $models = [];
 
@@ -43,16 +41,6 @@ readonly class LocalModelsResponse
         }
 
         return new self(models: $models);
-    }
-
-    /**
-     * @throws DateMalformedStringException
-     */
-    public static function fromResponse(Response $response): self
-    {
-        $json = json_decode($response->getBody()->getContents());
-
-        return self::fromJson($json);
     }
 
 }

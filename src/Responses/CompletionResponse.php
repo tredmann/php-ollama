@@ -4,10 +4,8 @@ namespace Ollama\Responses;
 
 use DateMalformedStringException;
 use DateTime;
-use JsonException;
-use Psr\Http\Message\ResponseInterface;
 
-class CompletionResponse
+readonly class CompletionResponse extends AbstractResponse
 {
     public function __construct(
         public string $model,
@@ -28,7 +26,7 @@ class CompletionResponse
     /**
      * @throws DateMalformedStringException
      */
-    public static function fromJson(object $json): self
+    public static function fromJson(object $json): static
     {
         return new self(
             model: $json->model,
@@ -43,19 +41,6 @@ class CompletionResponse
             evalCount: $json->eval_count ?? null,
             evalDuration: $json->eval_duration ?? null,
         );
-    }
-
-    /**
-     * @throws DateMalformedStringException
-     * @throws JsonException
-     */
-    public static function fromResponse(ResponseInterface $response): self
-    {
-        $body = $response->getBody()->getContents();
-
-        $json = json_decode(json: $body, flags: JSON_THROW_ON_ERROR);
-
-        return self::fromJson($json);
     }
 
 }
