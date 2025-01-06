@@ -9,7 +9,7 @@ we intend to implement and the status of the implementation:
 * [x] Completion (without streaming support)
 * [ ] Chat Completion
 * [x] List local models
-* [ ] Show Model Information
+* [x] Show Model Information
 * [x] List Running Models
 * [x] Version
 
