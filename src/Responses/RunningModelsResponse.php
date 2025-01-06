@@ -2,6 +2,7 @@
 
 namespace Ollama\Responses;
 
+use DateMalformedStringException;
 use DateTime;
 use Ollama\DTOs\Details;
 use Ollama\DTOs\Model;
@@ -15,7 +16,7 @@ readonly class RunningModelsResponse
     }
 
     /**
-     * @throws \DateMalformedStringException
+     * @throws DateMalformedStringException
      */
     public static function fromJson(object $json): RunningModelsResponse
     {
@@ -41,6 +42,9 @@ readonly class RunningModelsResponse
         return new self(models: $models);
     }
 
+    /**
+     * @throws DateMalformedStringException
+     */
     public static function fromResponse(ResponseInterface $response): self
     {
         $models = json_decode($response->getBody()->getContents());
