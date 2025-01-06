@@ -8,9 +8,9 @@ we intend to implement and the status of the implementation:
 
 * [x] Completion (without streaming support)
 * [ ] Chat Completion
-* [ ] List local models
+* [x] List local models
 * [ ] Show Model Information
-* [ ] List Running Models
+* [x] List Running Models
 * [ ] Version
 
 The checkout the [Ollama API Docs](https://github.com/ollama/ollama/blob/main/docs/api.md) for more information and the APIs we might miss.

@@ -4,16 +4,19 @@ namespace Ollama\Responses;
 
 use DateMalformedStringException;
 use DateTime;
+use GuzzleHttp\Psr7\Response;
 use Ollama\DTOs\Details;
 use Ollama\DTOs\Model;
-use Psr\Http\Message\ResponseInterface;
 
-readonly class RunningModelsResponse
+readonly class LocalModelsResponse
 {
-    /** @param array<Model> $models */
+    /**
+     * @param array<Model> $models
+     */
     public function __construct(public array $models)
     {
     }
+
 
     /**
      * @throws DateMalformedStringException
@@ -45,11 +48,11 @@ readonly class RunningModelsResponse
     /**
      * @throws DateMalformedStringException
      */
-    public static function fromResponse(ResponseInterface $response): self
+    public static function fromResponse(Response $response): self
     {
-        $models = json_decode($response->getBody()->getContents());
+        $json = json_decode($response->getBody()->getContents());
 
-        return self::fromJson($models);
+        return self::fromJson($json);
     }
 
 }
