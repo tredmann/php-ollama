@@ -1,5 +1,5 @@
 {
-    "name": "tobias-redmann/php-ollama",
+    "name": "tredmann/php-ollama",
     "autoload": {
         "psr-4": {
             "Ollama\\": "src/"
