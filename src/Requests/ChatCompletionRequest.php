@@ -14,7 +14,7 @@ readonly class ChatCompletionRequest
     public function __construct(
         public string $model,
         public array $messages,
-        public ?array $options = [],
+        public array $options = [],
         public ?array $images = null,
         public ?array $tool_calls = null,
         public ?string $format = null,
@@ -37,6 +37,18 @@ readonly class ChatCompletionRequest
             'stream' => $this->stream,
             'messages' => [],
         ];
+
+        if ($this->keepAlive !== null) {
+            $payload['keep_alive'] = $this->keepAlive;
+        }
+
+        if (count($this->options) > 0) {
+            $payload['options'] = $this->options;
+        }
+
+        if ($this->format !== null) {
+            $payload['format'] = $this->format;
+        }
 
         foreach ($this->messages as $message) {
             $payload['messages'][] = [

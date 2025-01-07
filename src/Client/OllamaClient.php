@@ -27,12 +27,11 @@ class OllamaClient
     /**
      * @throws GuzzleException
      */
-    public function get(string $url, ?array $params = null): ResponseInterface
+    public function get(string $url, array $params = []): ResponseInterface
     {
-
         $options = [];
 
-        if ($params !== null) {
+        if (count($params) > 0) {
             $options['query'] = $params;
         }
 

@@ -6,7 +6,7 @@ readonly class ShowModelInformationRequest
 {
     public function __construct(
         public string $model,
-        public ?bool $verbose = false
+        public bool $verbose = false
     ) {
     }
 

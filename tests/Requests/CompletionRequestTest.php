@@ -38,7 +38,24 @@ class CompletionRequestTest extends TestCase
             ],
             actual: $request->getPayload()
         );
+    }
 
+    public function testStreamSupportException(): void
+    {
+        $this->expectExceptionMessage('We currently do not support streaming.');
+
+        $request = new CompletionRequest(
+            model: 'testmodel',
+            prompt: 'Testprompt',
+            stream: true,
+            options: [ 'temperature' => 1 ],
+            format: 'json',
+            system: 'systemprompt',
+            template: 'template',
+            raw: false,
+            keepAlive: '5m',
+            suffix: 'suffix',
+        );
 
     }
 
