@@ -26,7 +26,7 @@ use Ollama\Ollama;
 
 $ollama = new Ollama(model: 'gemma2:latest');
 
-echo $ollama->completion(prompt: 'What is the capitol od Germany?');
+echo $ollama->completion(prompt: 'What is the capitol of Germany?');
 // The capital of Germany is **Berlin**.
 
 ```
