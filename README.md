@@ -17,6 +17,12 @@ The checkout the [Ollama API Docs](https://github.com/ollama/ollama/blob/main/do
 
 This package contains some low-level API libraries as well as a convenient API wrapper for all APIs. 
 
+## Installation
+```shell
+composer install tredmann/php-ollama
+```
+
+
 ## Convenience Wrapper
 
 The easiest way to ask the LLM things is to use the convenience wrapper:
