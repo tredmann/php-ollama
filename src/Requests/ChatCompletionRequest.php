@@ -16,7 +16,7 @@ readonly class ChatCompletionRequest
         public array $messages,
         public array $options = [],
         public ?array $images = null,
-        public ?array $tool_calls = null,
+        public ?array $tools = null,
         public ?string $format = null,
         public ?bool $stream = false,
         public ?string $keepAlive = '5m',
@@ -48,6 +48,10 @@ readonly class ChatCompletionRequest
 
         if ($this->format !== null) {
             $payload['format'] = $this->format;
+        }
+
+        if ($this->tools !== null) {
+            $payload['tools'] = $this->tools;
         }
 
         foreach ($this->messages as $message) {

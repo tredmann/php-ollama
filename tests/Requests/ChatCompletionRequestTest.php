@@ -16,7 +16,7 @@ class ChatCompletionRequestTest extends TestCase
             messages: [ new Message(role: Role::User, content: 'What is the capitol of Germany?')],
             options: ['temperature' => 1],
             images: null,
-            tool_calls: null,
+            tools: null,
             format: 'json',
             stream: false,
             keepAlive: '5m'

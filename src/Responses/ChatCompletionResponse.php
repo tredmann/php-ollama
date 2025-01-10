@@ -29,7 +29,11 @@ final readonly class ChatCompletionResponse extends AbstractResponse
     {
         return new static(
             model: $json->model,
-            message: new Message(role: Role::from($json->message->role), content: $json->message->content),
+            message: new Message(
+                role: Role::from($json->message->role),
+                content: $json->message->content,
+                toolCalls: $json->message?->tool_calls ?? null,
+            ),
             done: $json->done,
             totalDuration: $json->total_duration ?? null,
             loadDuration: $json->load_duration ?? null,
